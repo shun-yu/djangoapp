@@ -136,6 +136,6 @@ LOGGING = {
          },
       },
     "loggers": {
-        "logtest”: {"handlers": ["azure", "console"]},
+        "logger_name”: {"handlers": ["azure", "console"]},
     },
 }
