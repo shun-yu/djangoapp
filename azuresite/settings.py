@@ -121,3 +121,33 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+
+LOGGING = {
+'version': 1,
+'disable_existing_loggers': False,
+'formatters': {
+    'default': {
+        'format': '%(asctime)s - %(levelname)s - %(processName)s - %(name)s\n%(message)s',
+    },
+},
+'handlers': {
+     'azure': {
+        'class': 'opencensus.ext.azure.log_exporter.AzureLogHandler',
+        'formatter':'default'
+        # https://pypi.org/project/opencensus-ext-azure/
+        #Assumed ENV APPLICATIONINSIGHTS_CONNECTION_STRING
+      },
+    'console': {
+        'class': 'logging.StreamHandler',
+        'formatter': 'default',
+
+    },
+  },
+'loggers': {
+    'polls': {
+        'handlers': ['azure', 'console'],
+        'level':'DEBUG'
+        },
+}
+}
