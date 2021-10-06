@@ -122,3 +122,16 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+
+LOGGING = {
+    "handlers": {
+        "azure": {
+            "level": "DEBUG",
+        "class": "opencensus.ext.azure.log_exporter.AzureLogHandler",
+            "instrumentation_key": "08326a84-6ace-4de7-83d4-9dfc90f74046",
+         },
+      },
+    "loggers": {
+        "django": {"handlers": ["azure", "console"]},
+    },
+}
