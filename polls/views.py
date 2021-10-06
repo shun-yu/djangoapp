@@ -54,7 +54,3 @@ def vote(request, question_id):
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
-
-import logging
-logger = logging.getLogger("azure”)
-logger.warning("this will be tracked")
