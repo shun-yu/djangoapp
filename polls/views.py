@@ -56,5 +56,5 @@ def vote(request, question_id):
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
 
 import logging
-logger = logging.getLogger("logtest”)
+logger = logging.getLogger("azure”)
 logger.warning("this will be tracked")
